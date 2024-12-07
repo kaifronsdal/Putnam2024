@@ -1,5 +1,6 @@
 from inspect_ai import Task, task
 from inspect_ai.dataset import FieldSpec, json_dataset
+from inspect_ai.model import CachePolicy
 from inspect_ai.scorer import model_graded_qa
 from inspect_ai.solver import generate, system_message, prompt_template, basic_agent
 
@@ -32,8 +33,8 @@ def putnam(dataset_path: str) -> Task:
         solver=[
             system_message(SYSTEM_PROMPT),
             prompt_template(USER_PROMPT),
-            # generate()
+            generate(cache=CachePolicy("3M"))
             # basic_agent()
         ],
-        scorer=model_graded_qa()
+        # scorer=model_graded_qa()
     )
