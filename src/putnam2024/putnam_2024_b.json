@@ -1,0 +1,50 @@
+[
+    {
+        "year": "2024",
+        "id": "B1",
+        "problem": "Let $n$ and $k$ be positive integers. The square in the $i$ th row and $j$ th column of an $n$-by-$n$ grid contains the number $i+j-k$. For which $n$ and $k$ is it possible to select $n$ squares from the grid, no two in the same row or column, such that the numbers contained in the selected squares are exactly $1,2, \\ldots, n$?",
+        "solution": "",
+        "answer_type": "TODO",
+        "source": "combinatorics"
+    },
+    {
+        "year": "2024",
+        "id": "B2",
+        "problem": "Two convex quadrilaterals are called partners if they have three vertices in common and they can be labeled $A B C D$ and $A B C E$ so that $E$ is the reflection of $D$ across the perpendicular bisector of the diagonal $\\overline{A C}$. Is there an infinite sequence of convex quadrilaterals such that each quadrilateral is a partner of its successor and no two elements of the sequence are congruent?\n\n[asy]\nsize(200); // Set the size of the output image\n\n// Define the vertices of the diagram\npair A = (0.9,-3);\npair B = (-3, -1.4);\npair C = (-1.1, 2.95);\npair D = (1.6, 2.5);\npair E = (2.8,-1);\npair F = (-1.05,-0.3);\npair G = (4,1.3);\n\n// Draw the diagram\ndraw(A--B--C--D--A, linewidth(1));\ndraw(C--E--A, linewidth(1));\ndraw(C--A, dotted);\n\n// Label the vertices\nlabel(\"$A$\", A, S);\nlabel(\"$B$\", B, W);\nlabel(\"$C$\", C, N);\nlabel(\"$D$\", D, NE);\nlabel(\"$E$\", E, E);\n\n// Create a right angle symbol at intersection of CA and FG\npair H = (0.17,0.1);\npair I = (0.08,0.35);\npair J = (-0.2,0.25);\n\n// Draw the right angle symbol\ndraw(F--G, dotted);\ndraw(H--I--J, linewidth(0.5));\n[/asy]",
+        "solution": "",
+        "answer_type": "true_false",
+        "source": "geometry"
+    },
+    {
+        "year": "2024",
+        "id": "B3",
+        "problem": "Let $r_{n}$ be the $n$th smallest positive solution to $\\tan x=x$, where the argument of tangent is in radians. Prove that\n\n$$\n0<r_{n+1}-r_{n}-\\pi<\\frac{1}{\\left(n^{2}+n\\right) \\pi}\n$$\n\nfor $n \\geq 1$.",
+        "solution": "",
+        "answer_type": "proof",
+        "source": "analysis"
+    },
+    {
+        "year": "2024",
+        "id": "B4",
+        "problem": "Let $n$ be a positive integer. Set $a_{n, 0}=1$. For $k \\geq 0$, choose an integer $m_{n, k}$ uniformly at random from the set $\\{1, \\ldots, n\\}$, and let\n\n$$\na_{n, k+1}= \\begin{cases}a_{n, k}+1, & \\text { if } m_{n, k}>a_{n, k} \\\\ a_{n, k}, & \\text { if } m_{n, k}=a_{n, k} \\\\ a_{n, k}-1, & \\text { if } m_{n, k}<a_{n, k}\\end{cases}\n$$\n\nLet $E(n)$ be the expected value of $a_{n, n}$. Determine $\\lim _{n \\rightarrow \\infty} E(n) / n$.",
+        "solution": "",
+        "answer_type": "TODO",
+        "source": "probability"
+    },
+    {
+        "year": "2024",
+        "id": "B5",
+        "problem": "Let $k$ and $m$ be positive integers. For a positive integer $n$, let $f(n)$ be the number of integer sequences $x_{1}, \\ldots, x_{k}, y_{1}, \\ldots, y_{m}, z$ satisfying $1 \\leq x_{1} \\leq \\cdots \\leq x_{k} \\leq z \\leq n$ and $1 \\leq y_{1} \\leq \\cdots \\leq y_{m} \\leq z \\leq n$. Show that $f(n)$ can be expressed as a polynomial in $n$ with nonnegative coefficients.",
+        "solution": "",
+        "answer_type": "proof",
+        "source": "combinatorics"
+    },
+    {
+        "year": "2024",
+        "id": "B6",
+        "problem": "For a real number $a$, let $F_{a}(x)=\\sum_{n \\geq 1} n^{a} e^{2 n} x^{n^{2}}$ for $0 \\leq x<1$. Find a real number $c$ such that\n\n$$\n\\begin{aligned}\n\\lim _{x \\rightarrow 1^{-}} F_{a}(x) e^{-1 /(1-x)} & =0 \\quad \\text { for all } a<c, \\text { and } \\\\\n\\lim _{x \\rightarrow 1^{-}} F_{a}(x) e^{-1 /(1-x)} & =\\infty \\quad \\text { for all } a>c\n\\end{aligned}\n$$",
+        "solution": "",
+        "answer_type": "numerical",
+        "source": "analysis"
+    }
+]

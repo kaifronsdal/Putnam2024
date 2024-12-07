@@ -1,0 +1,50 @@
+[
+    {
+        "year": "2024",
+        "id": "A1",
+        "problem": "Determine all positive integers $n$ for which there exist positive integers $a, b$, and $c$ satisfying\n\n$$\n2 a^{n}+3 b^{n}=4 c^{n} \\text {. }\n$$",
+        "solution": "",
+        "answer_type": "numerical",
+        "source": "algebra"
+    },
+    {
+        "year": "2024",
+        "id": "A2",
+        "problem": "For which real polynomials $p$ is there a real polynomial $q$ such that\n\n$$\np(p(x))-x=(p(x)-x)^{2} q(x)\n$$\n\nfor all real $x$?",
+        "solution": "",
+        "answer_type": "TODO",
+        "source": "polynomials"
+    },
+    {
+        "year": "2024",
+        "id": "A3",
+        "problem": "Let $S$ be the set of bijections\n\n$$\nT:\\{1,2,3\\} \\times\\{1,2, \\ldots, 2024\\} \\rightarrow\\{1,2, \\ldots, 6072\\}\n$$\n\nsuch that $T(1, j)<T(2, j)<T(3, j)$ for all $j \\in\\{1,2, \\ldots, 2024\\}$ and $T(i, j)<T(i, j+1)$ for all $i \\in \\{1,2,3\\}$ and $j \\in\\{1,2, \\ldots, 2023\\}$. Do there exist $a$ and $c$ in $\\{1,2,3\\}$ and $b$ and $d$ in $\\{1,2, \\ldots, 2024\\}$ such that the fraction of elements $T$ in $S$ for which $T(a, b)<T(c, d)$ is at least $1 / 3$ and at most $2 / 3$?",
+        "solution": "",
+        "answer_type": "true_false",
+        "source": "combinatorics"
+    },
+    {
+        "year": "2024",
+        "id": "A4",
+        "problem": "Find all primes $p>5$ for which there exists an integer $a$ and an integer $r$ satisfying $1 \\leq r \\leq p-1$ with the following property: the sequence $1, a, a^{2}, \\ldots, a^{p-5}$ can be rearranged to form a sequence $b_{0}, b_{1}, b_{2}, \\ldots, b_{p-5}$ such that $b_{n}-b_{n-1}-r$ is divisible by $p$ for $1 \\leq n \\leq p-5$.",
+        "solution": "",
+        "answer_type": "numerical",
+        "source": "number theory"
+    },
+    {
+        "year": "2024",
+        "id": "A5",
+        "problem": "Consider a circle $\\Omega$ with radius 9 and center at the origin $(0,0)$, and a disk $\\Delta$ with radius 1 and center at $(r, 0)$, where $0 \\leq r \\leq 8$. Two points $P$ and $Q$ are chosen independently and uniformly at random on $\\Omega$. Which value(s) of $r$ minimize the probability that the chord $\\overline{P Q}$ intersects $\\Delta$?",
+        "solution": "",
+        "answer_type": "TODO",
+        "source": "geometry/probability"
+    },
+    {
+        "year": "2024",
+        "id": "A6",
+        "problem": "Let $c_{0}, c_{1}, c_{2}, \\ldots$ be the sequence defined so that\n\n$$\n\\frac{1-3 x-\\sqrt{1-14 x+9 x^{2}}}{4}=\\sum_{k=0}^{\\infty} c_{k} x^{k}\n$$\n\nfor sufficiently small $x$. For a positive integer $n$, let $A$ be the $n$-by-$n$ matrix with $i, j$-entry $c_{i+j-1}$ for $i$ and $j$ in $\\{1, \\ldots, n\\}$. Find the determinant of $A$.",
+        "solution": "",
+        "answer_type": "TODO",
+        "source": "linear algebra"
+    }
+]

@@ -37,20 +37,22 @@ def process_log_directory(log_dir: Path) -> Dict[str, Any]:
 
 
 def upload_to_wandb(
-        logs: Dict[str, Any],
+        eval_dir: str,
+        solutions_dir: str,
         project: str,
         entity: str | None = None,
         name: str | None = None,
         tags: list[str] | None = None,
 ) -> None:
     """
-    Upload logs to Weights & Biases.
+    Upload eval logs and solution files to Weights & Biases.
 
     Args:
-        logs: Dictionary of log data
+        eval_dir: Directory containing eval logs
+        solutions_dir: Directory containing solution JSON files
         project: W&B project name
         entity: W&B entity (username or team name)
-        name: Run name (defaults to timestamp if not provided)
+        name: Run name (defaults to timestamp)
         tags: List of tags to apply to the run
     """
     # Generate default run name if none provided
@@ -66,29 +68,37 @@ def upload_to_wandb(
         job_type="eval",
     )
 
-    # Log files and metrics
-    for log_name, log_content in logs.items():
-        if isinstance(log_content, (dict, list)):
-            # For structured data, log as config/metrics
-            if "metrics" in log_name.lower():
-                wandb.log(log_content)
-            else:
-                wandb.config.update({log_name: log_content})
-        else:
-            # For text content, save as files
-            with run.dir.join(log_name).open("w") as f:
-                f.write(str(log_content))
+    # Process and upload eval logs
+    eval_logs = process_log_directory(Path(eval_dir))
+    for log_name, log_content in eval_logs.items():
+        wandb.save(os.path.join(eval_dir, log_name))
+
+    # Process and upload solution files
+    solutions = process_log_directory(Path(solutions_dir))
+    for solution_name, solution_content in solutions.items():
+        wandb.save(os.path.join(solutions_dir, solution_name))
+
+    # Log basic stats about the data
+    wandb.log({
+        "num_eval_logs": len(eval_logs),
+        "num_solution_files": len(solutions)
+    })
 
     # Finish the run
     run.finish()
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Upload inspect-ai logs to Weights & Biases")
+    parser = argparse.ArgumentParser(description="Upload eval logs and solutions to Weights & Biases")
     parser.add_argument(
-        "log_dir",
+        "eval_dir",
         type=str,
-        help="Directory containing the logs",
+        help="Directory containing the eval logs",
+    )
+    parser.add_argument(
+        "solutions_dir",
+        type=str,
+        help="Directory containing the solution JSON files",
     )
     parser.add_argument(
         "--project",
@@ -116,18 +126,18 @@ def main():
     args = parser.parse_args()
 
     # Process log directory
-    log_dir = Path(args.log_dir)
-    if not log_dir.exists() or not log_dir.is_dir():
-        raise ValueError(f"Invalid log directory: {log_dir}")
+    eval_dir = Path(args.eval_dir)
+    if not eval_dir.exists() or not eval_dir.is_dir():
+        raise ValueError(f"Invalid eval logs directory: {eval_dir}")
 
-    # Load logs
-    logs = process_log_directory(log_dir)
-    if not logs:
-        raise ValueError(f"No logs found in directory: {log_dir}")
+    solutions_dir = Path(args.solutions_dir)
+    if not solutions_dir.exists() or not solutions_dir.is_dir():
+        raise ValueError(f"Invalid solutions directory: {solutions_dir}")
 
     # Upload to W&B
     upload_to_wandb(
-        logs=logs,
+        eval_dir=str(eval_dir),
+        solutions_dir=str(solutions_dir),
         project=args.project,
         entity=args.entity,
         name=args.name,
