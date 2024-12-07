@@ -18,3 +18,5 @@ Then simply run to run evaluations (make sure to change DATASET and CUDA_VISIBLE
 ```
 ./src/putnam2024/eval.sh
 ```
+
+Note that there should be the equivalent of at least 2 A100 GPUs available for the evaluation script to run properly.
