@@ -1,0 +1,86 @@
+[
+    {
+        "year": "1985",
+        "id": "B5",
+        "problem": "Evaluate $\\int_0^\\infty t^{-1/2}e^{-1985(t+t^{-1})}\\,dt$. You may assume that $\\int_{-\\infty}^\\infty e^{-x^2}\\,dx = \\sqrt{\\pi}$.",
+        "solution": "Let $I(x) = \\int_0^\\infty t^{-1/2}e^{-at-x/t}\\, dt$, where $a = 1985$. Then \\[ I'(x) = -\\int_0^\\infty t^{-3/2}e^{-at-x/t}\\, dt. \\] Make the substitution $u = 1/t$, and the last equation becomes \\[ I'(x) = -\\int_0^\\infty u^{-1/2}e^{-au-xu}\\, du. \\] Now let $w = \\frac{x}{a}u$, and the last equation is \\[ I'(x) = -\\left(\\frac{a}{x}\\right)^{1/2} \\int_0^\\infty w^{-1/2}e^{-xw-aw}\\, dw = -\\left(\\frac{a}{x}\\right)^{1/2} I(x). \\] Therefore, $\\log I(x) = -2(ax)^{1/2} + C$, or equivalently, $I(x) = ke^{-2(ax)^{1/2}}$. Also, \\[ k = I(0) = \\int_0^\\infty t^{-1/2}e^{-at}\\, dt = \\int_0^\\infty 2e^{-at^2}\\, dt = \\frac{\\sqrt{\\pi}}{\\sqrt{a}}. \\] This yields \\[ I(a) = \\boxed{\\frac{\\sqrt{\\pi}}{\\sqrt{1985}}e^{-3970}}. \\] (Note: the integral is essentially the K-Bessel function $K_{1/2}(3970)$.)",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1986",
+        "id": "A1",
+        "problem": "Find, with explanation, the maximum value of $f(x)=x^3-3x$ on the set of all real numbers $x$ satisfying $x^4+36\\leq 13x^2$.",
+        "solution": "The condition that $x^4 + 36 \\leq 13x^2$ is equivalent to \\[ (x - 3)(x - 2)(x + 2)(x + 3) \\leq 0. \\] The latter is satisfied if and only if $x$ is in the closed interval $[-3, -2]$ or the closed interval $[2, 3]$. The function $f$ is increasing on these intervals because for such $x$, $f'(x) = 3(x^2 - 1) > 0$. It follows that the maximum value of $f$ over this domain is $\\max \\{f(-2), f(3)\\} = \\boxed{18}.$",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1988",
+        "id": "B3",
+        "problem": "For every $n$ in the set $\\mathrm{N} = \\{1,2,\\dots \\}$ of positive integers, let $r_n$ be the minimum value of $|c-d\\sqrt{3}|$ for all nonnegative integers $c$ and $d$ with $c+d=n$. Find, with proof, the smallest positive real number $g$ with $r_n \\leq g$ for all $n \\in \\mathrm{N}$.",
+        "solution": "Let $g = (1 + \\sqrt{3})/2$. Since for each fixed value of $n$ the sequence \\[n, n - 1 - \\sqrt{3}, n - 2 - 2\\sqrt{3}, \\dots, -n\\sqrt{3}\\] is an arithmetic progression with $-2g$ as common difference, there is a unique term $x_n$ in it with $-g < x_n < g$. Clearly $r_n = |x_n|$. Let $\\varepsilon > 0$. By the pigeonhole principle, there exist $a$ and $b$ with $a \\neq b$ and $|x_a - x_b| < \\varepsilon$. Let $t = |a - b|$. In the sequence $r_t, r_{2t}, r_{3t}, \\dots$, there is an $r_{kt}$ such that $g - \\varepsilon < r_{kt} \\leq g$. Hence $g = \\boxed{(1 + \\sqrt{3})/2}$ is the desired least upper bound of the $r_n$.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1989",
+        "id": "A1",
+        "problem": "How many primes among the positive integers, written as usual in base 10, are alternating 1's and 0's, beginning and ending with 1?",
+        "solution": "Let $N_k$ be the number \\[ 101010 \\ldots 101 \\] with exactly $k$ digits equal to 0. If $k = 1$, so that $N_k = 101$, then $N_k$ is prime. All other $N_k$'s are composite, as the following reasoning shows. If $k$ is odd, then $101$ divides $N_k$. If $k$ is even, then \\[ 11N_k = R \\cdot S, \\] where $R$ is the number consisting of $k + 1$ digits all equal to $1$ and $S$ is the number with $k + 2$ digits beginning and ending with $1$ and having only $0$'s in between. One of the numbers $R$ and $S$ divides $N_k$. Thus the answer is \\boxed{1}.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1990",
+        "id": "B1",
+        "problem": "Find the absolute value of the difference across all real-valued continuously differentiable functions $f$ on the real line such that for all $x$, \\[ (f(x))^2 = \\int_0^x [(f(t))^2 + (f'(t))^2]\\,dt + 1990. \\]",
+        "solution": "There are two such functions, namely $f(x) = \\sqrt{1990} e^x$, and $f(x) = -\\sqrt{1990} e^x$. To see this, suppose that the identity holds. Differentiating each side gives\n\\[ 2f(x)f'(x) = (f(x))^2 + (f'(x))^2, \\]\nor equivalently,\n\\[ (f(x) - f'(x))^2 = 0, \\quad f'(x) = f(x), \\]\n\\[ \\log|f(x)| = x + C, \\quad |f(x)| = e^C e^x. \\]\nBut $f$ is continuous and $f(0) = \\pm \\sqrt{1990}$, and this implies that $f(x) = \\pm \\sqrt{1990} e^x$ giving us the absolute value of the difference to be \\boxed{2\\sqrt{1990} e^x}.",
+        "answer_type": "algebraic"
+    },
+    {
+        "year": "1992",
+        "id": "A2",
+        "problem": "Define $C(\\alpha)$ to be the coefficient of $x^{1992}$ in the power series about $x=0$ of $(1 + x)^\\alpha$. Evaluate \\[ \\int_0^1 \\left( C(-y-1) \\sum_{k=1}^{1992} \\frac{1}{y+k} \\right)\\,dy. \\]",
+        "solution": "From the binomial series, we see that\n\n\\[ C(-y - 1) = \\frac{(-y - 1)(-y - 2) \\cdots (-y - 1992)}{1992!} = \\frac{(y + 1)(y + 2) \\cdots (y + 1992)}{1992!}. \\]\n\nTherefore,\n\n\\[ C(-y - 1) \\left( \\frac{1}{y + 1} + \\frac{1}{y + 2} + \\cdots + \\frac{1}{y + 1992} \\right) = \\frac{d}{dy} \\left( \\frac{(y + 1)(y + 2) \\cdots (y + 1992)}{1992!} \\right). \\]\n\nHence the integral in question is\n\n\\[ \\int_0^1 \\frac{d}{dy} \\left( \\frac{(y + 1)(y + 2) \\cdots (y + 1992)}{1992!} \\right) dy = \\frac{(y + 1)(y + 2) \\cdots (y + 1992)}{1992!} \\Big|_0^1 = 1993 - 1 = \\boxed{1992}. \\]",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1993",
+        "id": "A1",
+        "problem": "The horizontal line $y=c$ intersects the curve $y = 2x - 3x^3$ in the first quadrant as in the figure. Find $c$ so that the areas of the two shaded regions are equal. [Figure not included. The first region is bounded by the $y$-axis, the line $y=c$ and the curve; the other lies under the curve and above the line $y=c$ between their two points of intersection.]",
+        "solution": "Let $(b, c)$ denote the second intersection point. We wish to find $c$ so that\n\n\\[ \\int_0^b \\left( c - \\left(2x - 3x^3 \\right) \\right) dx = 0. \\]\n\nThis leads to $cb - b^2 + \\left(3/4\\right)b^4 = 0$. After substituting $c = 2b - 3b^3$ and solving, we find that $b = 2/3$ and the result follows. The value of $c$ is $\\boxed{4/9}$.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1993",
+        "id": "B1",
+        "problem": "Find the smallest positive integer $n$ such that for every integer $m$ with $0 < m < 1993$, there exists an integer $k$ for which \\[ \\frac{m}{1993} < \\frac{k}{n} < \\frac{m+1}{1994}. \\]",
+        "solution": "First, it is easily verified that\n\n\\[ \\frac{m}{1993} < \\frac{2m + 1}{1993 + 1994} < \\frac{m + 1}{1994}, \\]\n\nso $n = 1993 + 1994 = 3987$ suffices. Now consider $m = 1992$ and suppose\n\n\\[ \\frac{1992}{1993} < \\frac{k}{n} < \\frac{1993}{1994}. \\]\n\nSince $x/(x + 1)$ is strictly increasing for $x > 0$, we must have $k \\leq n - 2$ (note: $n > 1994$). However,\n\n\\[ \\frac{1992}{1993} < \\frac{n - 2}{n} \\]\n\nimplies $3986 < n$, so $n \\geq \\boxed{3987}$, completing the proof.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1993",
+        "id": "B2",
+        "problem": "Consider the following game played with a deck of $2n$ cards numbered from 1 to $2n$. The deck is randomly shuffled and $n$ cards are dealt to each of two players. Beginning with $A$, the players take turns discarding one of their remaining cards and announcing its number. The game ends as soon as the sum of the numbers on the discarded cards is divisible by $2n+1$. The last person to discard wins the game. Assuming optimal strategy by both $A$ and $B$, what is the probability that $A$ wins?",
+        "solution": "Clearly, $A$ cannot win on the first turn. Assume $B$ is to play, and that the total of announced numbers is $T$, and that $A$ has cards $x_1, x_2, \\dots, x_k$, and $B$ has cards $y_1, y_2, \\dots, y_{k+1}$. Because the integers $T + y_1, \\dots, T + y_{k+1}$ have distinct remainders upon division by $2n + 1$, at least one has a remainder other than $2n + 1 - x_1, \\dots, 2n + 1 - x_k$. If $B$ discards that $y_i$, it is impossible for $A$'s next discard to make the total divisible by $2n + 1$. Therefore, $A$ cannot win under optimal play by $B$. The probability that $A$ wins is \\boxed{0}.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1993",
+        "id": "B3",
+        "problem": "Two real numbers $x$ and $y$ are chosen at random in the interval (0,1) with respect to the uniform distribution. What is the probability that the closest integer to $x/y$ is even? Express the answer in the form $r+s\\pi$, where $r$ and $s$ are rational numbers.",
+        "solution": "The limit is $(5 - \\pi)/4$ (that is, when $r = 5/4$, $s = -1/4$).\n\nNote that the probability that $x/y$ is exactly half an odd integer is 0, so we may safely ignore this possibility.\n\nFor any choice of $x$, the closest integer to $x/y$ is even if either $x/y < .5$ or $2n - .5 < x/y < 2n + .5$ for some positive integer $n$.\n\nThe event $x/y < .5$, or $2x < y$, can occur only if $x < .5$. Thus its probability is\n\n\\[ \\int_0^{.5} \\left(1 - 2x\\right) dx = \\frac{1}{4}. \\]\n\nFor a positive integer $n$, the probability that $2n - .5 < x/y < 2n + .5$, i.e., that $2x/(4n + 1) < y < 2x/(4n - 1)$, is\n\n\\[ \\int_0^1 \\left( \\frac{2x}{4n - 1} - \\frac{2x}{4n + 1} \\right) dx = \\frac{1}{4n - 1} - \\frac{1}{4n + 1}. \\]\n\nSumming from $n = 1$ to $\\infty$, we get\n\n\\[ \\sum_{k=1}^{\\infty} \\left(-1\\right)^{k+1} \\frac{1}{2k + 1} = 1 - \\arctan 1 = 1 - \\frac{\\pi}{4}. \\]\n\nThe total probability then is $1/4 + 1 - \\pi/4 = \\boxed{(5 - \\pi)/4}$.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1994",
+        "id": "A2",
+        "problem": "Let $A$ be the area of the region in the first quadrant bounded by the line $y = \\frac{1}{2} x$, the $x$-axis, and the ellipse $\\frac{1}{9} x^2 + y^2 = 1$. Find the positive number $m$ such that $A$ is equal to the area of the region in the first quadrant bounded by the line $y = mx$, the $y$-axis, and the ellipse $\\frac{1}{9} x^2 + y^2 = 1$.",
+        "solution": "The linear transformation given by $x_1 = \\frac{1}{3}x$, $y_1 = y$ transforms the region $R$ bounded by $y = \\frac{1}{2}x$, the $x$-axis, and the ellipse $\\frac{1}{9}x^2 + y^2 = 1$ into the region $R'$ bounded by $y_1 = \\frac{3}{2}x_1$, the $x_1$-axis, and the circle $x_1^2 + y_1^2 = 1$; it also transforms the region $S$ bounded by $y = mx$, the $y$-axis, and $\\frac{1}{9}x^2 + y^2 = 1$ into the region $S'$ bounded by $y_1 = 3mx_1$, the $y_1$-axis, and the circle. Since all areas are multiplied by the same (nonzero) factor under the transformation, $R$ and $S$ have the same area if and only if $R'$ and $S'$ have the same area. However, we can see by symmetry about the line $y_1 = x_1$ that this happens if and only if $3m = \\frac{2}{3}$, that is, $m = \\boxed{\\frac{2}{9}}$.",
+        "answer_type": "numerical"
+    },
+    {
+        "year": "1998",
+        "id": "A1",
+        "problem": "A right circular cone has base of radius 1 and height 3.  A cube is inscribed in the cone so that one face of the cube is contained in the base of the cone.  What is the side-length of the cube?",
+        "solution": "Consider the plane containing both the axis of the cone and two opposite vertices of the cube's bottom face.  The cross section of the cone and the cube in this plane consists of a rectangle of sides $s$ and $s\\sqrt{2}$ inscribed in an isosceles triangle of base $2$ and height $3$, where $s$ is the side-length of the cube.  (The $s\\sqrt{2}$ side of the rectangle lies on the base of the triangle.)  Similar triangles yield $s/3 = (1-s\\sqrt{2}/2)/1$, or $s = (\\boxed{(9\\sqrt{2} - 6)/7}.$",
+        "answer_type": "numerical"
+    }
+]
